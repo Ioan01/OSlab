@@ -1,0 +1,5 @@
+# ninja log v5
+1	101	1649139535968423164	CMakeFiles/dsh.dir/main.c.o	f46d350eb7c10d88
+81	139	1649140070694391093	dsh	bdefb3cefad4bacd
+1	62	1649139118728531134	CMakeFiles/dsh.dir/builtins.c.o	932c9fc1d5b26366
+1	80	1649140070636390555	CMakeFiles/dsh.dir/shell.c.o	6b9e8ab8b40e2860
