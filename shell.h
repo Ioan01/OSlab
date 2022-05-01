@@ -10,8 +10,8 @@
 
 void shell(char *dir);
 
-void hello();
+void status();
 
-void cleanShell();
+void hello();
 
 #endif //DSH_SHELL_H

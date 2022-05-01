@@ -7,13 +7,12 @@
 #include <unistd.h>
 #include "shell.h"
 #include "builtins.h"
+#include "processes.h"
 
 #define MAX_PARAMETERS 10
 #define MAX_COMMAND_LEN 64
 #define MAX_PARAMETER_LEN 64
 
-
-void cleanShell();
 
 void hello()
 {
@@ -86,6 +85,12 @@ void shell(char *dir)
             type(newDir, splitParameters[0]);
         else if (!strcmp(command,CREATE_ENTRY))
             create(newDir,splitParameters[0],splitParameters[1],splitParameters[2],splitParameters[3]);
+        else if (!strcmp(command,COMMAND))
+            run(splitParameters);
+        else if (!strcmp(command,STATUS))
+            status();
+        else printf("Command not found\n");
+
 
 
     }
