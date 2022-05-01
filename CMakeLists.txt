@@ -3,4 +3,4 @@ project(dsh C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(dsh main.c shell.c shell.h builtins.c builtins.h)
+add_executable(dsh main.c shell.c shell.h builtins.c builtins.h processes.c processes.h)

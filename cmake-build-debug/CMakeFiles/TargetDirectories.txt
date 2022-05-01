@@ -1,3 +1,3 @@
-/home/ioan/CLionProjects/dsh/cmake-build-debug/CMakeFiles/dsh.dir
-/home/ioan/CLionProjects/dsh/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ioan/CLionProjects/dsh/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ioan/IdeaProjects/OSlab/cmake-build-debug/CMakeFiles/dsh.dir
+/home/ioan/IdeaProjects/OSlab/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ioan/IdeaProjects/OSlab/cmake-build-debug/CMakeFiles/rebuild_cache.dir

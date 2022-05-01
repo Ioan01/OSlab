@@ -4,6 +4,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "shell.h"
 #include "builtins.h"
 
@@ -12,39 +13,82 @@
 #define MAX_PARAMETER_LEN 64
 
 
+void cleanShell();
+
 void hello()
 {
     system("neofetch");
 }
 
+void cleanShell(char** splitParams) {
+    for (int i = 0; i < MAX_PARAMETERS; ++i) {
+        splitParams[i] = NULL;
+    }
+}
 
-void shell(const char *dir)
+
+
+void shell(char *dir)
 {
+    dir[strrchr(dir,'/')-dir] = '\0';
+
+    char* newDir = malloc(sizeof(char) * 1024);
+    strcpy(newDir,dir);
+
+
+
+
     char exit = 0;
 
+    char* input;
     char command[MAX_COMMAND_LEN];
-    char parameters[MAX_PARAMETER_LEN];
 
-    char *splitParameters[MAX_PARAMETERS][MAX_PARAMETER_LEN];
+    char *splitParameters[128];
 
+    
 
     //hello();
     while (!exit)
     {
-        scanf("%[^ \n]%[^\n]%^s", command, parameters);
+        cleanShell(splitParameters);
 
+        printf("\n%s: ",newDir);
+        gets(command);
+
+        chdir(newDir);
+
+        input = strtok(command," ");
+        int index = 0;
+
+        do {
+            splitParameters[index] = strtok(NULL," ");
+            index++;
+        } while (splitParameters[index-1] != NULL);
+
+
+
+
+        if (!strcmp(command,"hello"))
+            hello();
         if (!strcmp(command, HELP))
             help();
         else if (!strcmp(command, EXIT))
             exit = 1;
         else if (!strcmp(command, CURRENT_DIR))
-            cd(dir, parameters);
+        {
+            cd(newDir, splitParameters[0]);
+            chdir(newDir);
+        }
+
         else if (!strcmp(command, PRINT_CURRENT_DIR))
-            pwd(dir);
+            pwd(newDir);
         else if (!strcmp(command, ENTRY_TYPE))
-            type(dir, parameters);
+            type(newDir, splitParameters[0]);
+        else if (!strcmp(command,CREATE_ENTRY))
+            create(newDir,splitParameters[0],splitParameters[1],splitParameters[2],splitParameters[3]);
 
 
     }
 }
+
 

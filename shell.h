@@ -8,8 +8,10 @@
 #include <stdio.h>
 
 
-void shell(const char *dir);
+void shell(char *dir);
 
 void hello();
+
+void cleanShell();
 
 #endif //DSH_SHELL_H
