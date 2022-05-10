@@ -67,6 +67,8 @@ void shell(char *dir)
 
 
 
+
+
         if (!strcmp(command,"hello"))
             hello();
         if (!strcmp(command, HELP))

@@ -12,4 +12,6 @@
 
 void run(char* argv[]);
 
+void runPipes(char *argv[],int argvIndex);
+
 #endif //DSH_PROCESSES_H
